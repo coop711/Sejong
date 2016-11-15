@@ -19,7 +19,7 @@ options(width = 180)
 ```
 
 ```{r, reading data}
-sejong.poll <- read.table("../data/sejong_poll.txt", header = TRUE, sep = "")
+sejong.poll <- read.table("../data/sejong_poll.txt", header = TRUE, sep = "", stringsAsFactors = FALSE)
 str(sejong.poll)
 # pander(sejong.poll)
 kable(sejong.poll[4:1])

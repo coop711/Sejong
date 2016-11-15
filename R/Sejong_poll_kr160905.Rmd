@@ -83,8 +83,8 @@ par(mfrow = c(1, 1))
 ### 관료와 품관촌민
 
 ```{r, by region}
-kable(vote.region.bureau, caption = "관료들의 지역별 찬반")
-kable(format(prop.table(vote.region.bureau, margin = 2)*100, digits = 3, nsmall = 1), align = rep("r", 9), caption = "관료들의 지역별 찬반(%)")
+kable(vote.region.bureaus, caption = "관료들의 지역별 찬반")
+kable(format(prop.table(vote.region.bureaus, margin = 2)*100, digits = 3, nsmall = 1), align = rep("r", 9), caption = "관료들의 지역별 찬반(%)")
 kable(format(vote.region.commons, big.mark = ","), align = rep("r", 9), caption = "품관촌민들의 지역별 찬반")
 kable(format(prop.table(vote.region.commons, margin = 2)*100, digits = 1, nsmall = 1), align = rep("r", 9), caption = "품관촌민들의 지역별 찬반(%)")
 ```
@@ -119,15 +119,15 @@ mosaicplot(t(vote.seoul.class), col = gray.2, main = "서울의 찬반", xlab = 
 
 
 ```{r, local bureaus}
-kable(vote.region.bureau[, -1], caption = "지역별 관료들의 찬반(서울 제외)")
-kable(format(prop.table(vote.region.bureau[, -1], margin = 2)*100, digits = 1, nsmall = 1), align = rep("r", 3), caption = "지역별 관료들의 찬반(서울 제외, %)")
+kable(vote.region.bureaus[, -1], caption = "지역별 관료들의 찬반(서울 제외)")
+kable(format(prop.table(vote.region.bureaus[, -1], margin = 2)*100, digits = 1, nsmall = 1), align = rep("r", 3), caption = "지역별 관료들의 찬반(서울 제외, %)")
 ```
 
 ### 막대그래프
 
 ```{r, barplot for regional bureaus}
 par(family = "나눔고딕")
-barplot(vote.region.bureau[, -1], beside = TRUE, col = gray.2)
+barplot(vote.region.bureaus[, -1], beside = TRUE, col = gray.2)
 title(main = "지방 관료들의 찬반")
 legend("topleft", inset = 0.05, fill = gray.2, legend = c("찬성", "반대"))
 ```
@@ -136,7 +136,7 @@ legend("topleft", inset = 0.05, fill = gray.2, legend = c("찬성", "반대"))
 
 ```{r, mosaic for local bureaus}
 par(family = "나눔고딕")
-mosaicplot(t(vote.region.bureau[, -1]), col = gray.2, main = "", xlab = "계급", ylab = "찬반")
+mosaicplot(t(vote.region.bureaus[, -1]), col = gray.2, main = "", xlab = "계급", ylab = "찬반")
 title(main = "지방 관료들의 찬반")
 ```
 
